@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using exeptions.Entities;
-using exeptions.Entities.Exceptions;
+using exceptions.Entities;
+using exceptions.Entities.Exceptions;
 public class Program
 {
     public static void Main(string[] args)
