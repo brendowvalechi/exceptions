@@ -1,3 +1,5 @@
+using exeptions.Entities.Exceptions;
+
 namespace exeptions.Entities
 {
     class Reservation
@@ -12,6 +14,11 @@ namespace exeptions.Entities
 
         public Reservation(int roomNumber, DateTime checkIn, DateTime checkOut)
         {
+            if (checkOut <= checkIn)
+            {
+            throw new DomainException("Check-out date must be after Check-in date.");
+            }
+
             RoomNumber = roomNumber;
             CheckIn = checkIn;
             CheckOut = checkOut;
@@ -23,20 +30,19 @@ namespace exeptions.Entities
             return (int)duration.TotalDays;
         }
 
-        public string UpdateDates(DateTime checkIn, DateTime checkOut)
+        public void UpdateDates(DateTime checkIn, DateTime checkOut)
         {
             DateTime now = DateTime.Now;
         if (checkIn < now || checkOut < now)
         {
-           return "Reservation dates for update must be future dates.";
+           throw new DomainException("Reservation dates for update must be future dates."); //Lança uma instancia de DomainException para anunciar a exceção
         }
         if (checkOut <= checkIn)
         {
-            return "Check-out date must be after Check-in date.";
+            throw new DomainException("Check-out date must be after Check-in date.");
         }
             CheckIn = checkIn;
             CheckOut = checkOut;
-            return null;
         }
 
         public override string ToString()
