@@ -1,6 +1,6 @@
-using exeptions.Entities.Exceptions;
+using exceptions.Entities.Exceptions;
 
-namespace exeptions.Entities
+namespace exceptions.Entities
 {
     class Reservation
     {

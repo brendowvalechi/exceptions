@@ -1,5 +1,5 @@
 
-namespace exeptions.Entities.Exceptions
+namespace exceptions.Entities.Exceptions
 {
     class DomainException : ApplicationException
     {
